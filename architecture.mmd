@@ -1,0 +1,19 @@
+graph TD
+    User --> UI(User Interface: Streamlit/Gradio/CLI)
+    UI --> Agent(Strands Agent)
+    Agent --> LLM(Bedrock Model)
+    Agent --> Tool1(cloudwatch_metrics_tool)
+    Agent --> Tool2(use_aws)
+
+    Tool1 --> AWS_CW(AWS CloudWatch)
+    Tool1 --> Matplotlib(Matplotlib for Plotting)
+    Matplotlib --> PlotDir(PLOT_DIR: /plots)
+    Tool1 --> HistoryFile(aws_agent_history.json)
+
+    Tool2 --> AWS_EC2(AWS EC2)
+    Tool2 --> AWS_Other(Other AWS Services)
+
+    AWS_CW --> UI
+    AWS_EC2 --> UI
+    PlotDir --> UI
+    HistoryFile --> UI

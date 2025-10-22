@@ -1,0 +1,9 @@
+[
+  {
+    "time": "2025-10-22T10:19:07.480059+00:00",
+    "action": "metrics",
+    "region": "us-west-2",
+    "instance": "i-09ea46e8e61f8fe86",
+    "plot": "C:\\EC2-Monitor\\plots\\i-09ea46e8e61f8fe86_20251022T154906.png"
+  }
+]

@@ -1,0 +1,17 @@
+[project]
+name = "strand-agent-cloudwatch"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "boto3>=1.40.55",
+    "gradio>=5.49.1",
+    "seaborn>=0.13.2",
+    "strands-agents>=1.13.0",
+    "strands-agents-tools>=0.2.12",
+    "streamlit>=1.50.0",
+]
+authors = [
+    { name = "Aditya Dey", email = "aditya.d@cloudworkmates.com" },
+]
