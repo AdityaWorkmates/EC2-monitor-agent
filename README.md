@@ -4,8 +4,7 @@
 ![uv](https://img.shields.io/badge/powered%20by-uv-green)
 ![License](https://img.shields.io/badge/License-MIT-yellow.svg)
 ![AWS](https://img.shields.io/badge/cloud-AWS-orange)
-![AWS Bedrock](https://img.shields.io/badge/model-AWS%20Bedrock-ff9900)
-![LLM](https://img.shields.io/badge/powered%20by-LLM-747474)
+![AWS Bedrock](https://img.shields.io/badge/Powered%20by-AWS%20Bedrock-ff9900)
 ![Strands SDK](https://img.shields.io/badge/SDK-Strands-purple)
 
 ## 1. Description
