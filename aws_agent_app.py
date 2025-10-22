@@ -34,12 +34,14 @@ load_dotenv()
 
 # For deploying in EC2 or ECS
 
+
 # boto3 session (uses env or IAM role)
 session = boto3.Session(
     aws_access_key_id=os.getenv("AWS_ACCESS_KEY"),
     aws_secret_access_key=os.getenv("AWS_SECRET_ACCESS_KEY"),
     region_name=os.getenv("REGION_NAME"),
 )
+logger.info("Loaded from os.getenv")
 
 # For deploying in streamlit
 
@@ -48,6 +50,8 @@ session = boto3.Session(
 access_key_id = st.secrets.get("AWS_ACCESS_KEY")
 secret_access_key = st.secrets.get("AWS_SECRET_ACCESS_KEY")
 region = st.secrets.get("AWS_DEFAULT_REGION", "us-west-2") # Use "us-west-2" as a fallback
+
+logger.info("Loaded from st.secrets")
 
 # 2. Log for debugging (This will now work because the variables are defined)
 logger.info("--- Loading AWS Credentials ---")
