@@ -69,6 +69,18 @@ else:
 logger.info("-------------------------------")
 
 
+# --- ADD THIS NEW BLOCK ---
+# Set environment variables for Boto3/Strands to auto-detect
+# This is the key fix for BedrockModel and use_aws
+if access_key_id:
+    os.environ["AWS_ACCESS_KEY_ID"] = access_key_id
+if secret_access_key:
+    os.environ["AWS_SECRET_ACCESS_KEY"] = secret_access_key
+if region:
+    os.environ["AWS_DEFAULT_REGION"] = region
+
+logger.info("Set AWS credentials as environment variables for Boto3.")
+
 # 3. Create the one and only boto3 session
 #    This passes the variables you just defined above.
 session = boto3.Session(
