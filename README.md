@@ -1,5 +1,13 @@
 # EC2-monitor-agent
 
+![Python](https://img.shields.io/badge/python-3.9%2B-blue)
+![uv](https://img.shields.io/badge/powered%20by-uv-green)
+![License](https://img.shields.io/badge/License-MIT-yellow.svg)
+![AWS](https://img.shields.io/badge/cloud-AWS-orange)
+![AWS Bedrock](https://img.shields.io/badge/model-AWS%20Bedrock-ff9900)
+![LLM](https://img.shields.io/badge/powered%20by-LLM-747474)
+![Strands SDK](https://img.shields.io/badge/SDK-Strands-purple)
+
 ## 1. Description
 The EC2-monitor-agent is an intelligent assistant designed to help users monitor and manage their AWS EC2 instances. It leverages AWS CloudWatch metrics to provide insights into CPU utilization and other key performance indicators. The agent can list instances, fetch metrics, and visualize data through plots, making AWS resource management more intuitive.
 
