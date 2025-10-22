@@ -32,12 +32,24 @@ logger = logging.getLogger("aws_agent_streamlit")
 # load env
 load_dotenv()
 
+# For deploying in EC2 or ECS
+
+# boto3 session (uses env or IAM role)
+# session = boto3.Session(
+#     aws_access_key_id=os.getenv("AWS_ACCESS_KEY"),
+#     aws_secret_access_key=os.getenv("AWS_SECRET_ACCESS_KEY"),
+#     region_name=os.getenv("REGION_NAME"),
+# )
+
+# For deploying in streamlit
+
 # boto3 session (uses env or IAM role)
 session = boto3.Session(
-    aws_access_key_id=os.getenv("AWS_ACCESS_KEY"),
-    aws_secret_access_key=os.getenv("AWS_SECRET_ACCESS_KEY"),
-    region_name=os.getenv("REGION_NAME"),
+    aws_access_key_id=st.secrets.get("AWS_ACCESS_KEY_ID"),
+    aws_secret_access_key=st.secrets.get("AWS_SECRET_ACCESS_KEY"),
+    region_name=st.secrets.get("AWS_DEFAULT_REGION", "us-west-2"),
 )
+
 
 HISTORY_FILE = "aws_agent_history.json"
 PLOT_DIR = os.path.join(os.path.dirname(os.path.abspath(__file__)), "plots")
