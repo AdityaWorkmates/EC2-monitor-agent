@@ -45,7 +45,7 @@ load_dotenv()
 
 # boto3 session (uses env or IAM role)
 session = boto3.Session(
-    aws_access_key_id=st.secrets.get("AWS_ACCESS_KEY_ID"),
+    aws_access_key_id=st.secrets.get("AWS_ACCESS_KEY"),
     aws_secret_access_key=st.secrets.get("AWS_SECRET_ACCESS_KEY"),
     region_name=st.secrets.get("AWS_DEFAULT_REGION", "us-west-2"),
 )
