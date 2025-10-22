@@ -50,8 +50,25 @@ session = boto3.Session(
     region_name=st.secrets.get("AWS_DEFAULT_REGION", "us-west-2"),
 )
 
-print(aws_access_key)
-print(region_name)
+# Log for debugging (This is what you asked for)
+# This will print to your Streamlit logs.
+logger.info("--- Loading AWS Credentials ---")
+if access_key_id:
+    # Masking the key is safer. Only shows first 4 and last 4 chars.
+    logger.info(f"Loaded AWS_ACCESS_KEY_ID: {access_key_id[:4]}...{access_key_id[-4:]}")
+else:
+    logger.error("AWS_ACCESS_KEY_ID not found in Streamlit secrets!")
+
+if region:
+    logger.info(f"Loaded AWS_DEFAULT_REGION: {region}")
+else:
+    logger.error("AWS_DEFAULT_REGION not found in Streamlit secrets!")
+
+if secret_access_key:
+    logger.info("AWS_SECRET_ACCESS_KEY is loaded (value not shown for security).")
+else:
+    logger.error("AWS_SECRET_ACCESS_KEY not found in Streamlit secrets!")
+logger.info("-------------------------------")
 
 
 HISTORY_FILE = "aws_agent_history.json"
