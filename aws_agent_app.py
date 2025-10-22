@@ -43,15 +43,13 @@ session = boto3.Session(
 
 # For deploying in streamlit
 
-# boto3 session (uses env or IAM role)
-session = boto3.Session(
-    aws_access_key_id=st.secrets.get("AWS_ACCESS_KEY"),
-    aws_secret_access_key=st.secrets.get("AWS_SECRET_ACCESS_KEY"),
-    region_name=st.secrets.get("AWS_DEFAULT_REGION", "us-west-2"),
-)
+# 1. Get credentials from Streamlit secrets
+#    (Make sure your secrets file uses these *exact* names)
+access_key_id = st.secrets.get("AWS_ACCESS_KEY")
+secret_access_key = st.secrets.get("AWS_SECRET_ACCESS_KEY")
+region = st.secrets.get("AWS_DEFAULT_REGION", "us-west-2") # Use "us-west-2" as a fallback
 
-# Log for debugging (This is what you asked for)
-# This will print to your Streamlit logs.
+# 2. Log for debugging (This will now work because the variables are defined)
 logger.info("--- Loading AWS Credentials ---")
 if access_key_id:
     # Masking the key is safer. Only shows first 4 and last 4 chars.
@@ -70,6 +68,14 @@ else:
     logger.error("AWS_SECRET_ACCESS_KEY not found in Streamlit secrets!")
 logger.info("-------------------------------")
 
+
+# 3. Create the one and only boto3 session
+#    This passes the variables you just defined above.
+session = boto3.Session(
+    aws_access_key_id=access_key_id,
+    aws_secret_access_key=secret_access_key,
+    region_name=region,
+)
 
 HISTORY_FILE = "aws_agent_history.json"
 PLOT_DIR = os.path.join(os.path.dirname(os.path.abspath(__file__)), "plots")
