@@ -328,7 +328,13 @@ otherwise use the 'use_aws' tool to perform the operation.
 always show detailed information.
 """
 
-bedrock_model = BedrockModel(model_id="us.amazon.nova-pro-v1:0", temperature=0.7, top_p=0.9)
+# bedrock_model = BedrockModel(model_id="us.amazon.nova-pro-v1:0", temperature=0.7, top_p=0.9)
+bedrock_model = BedrockModel(
+    model_id="us.amazon.nova-pro-v1:0", 
+    temperature=0.7, 
+    top_p=0.9,
+    session=session  # <-- This is the solution
+)
 
 agent = Agent(
     model=bedrock_model,
