@@ -1,4 +1,4 @@
-# EC2-monitor-agent
+# AWS-Assistant-agent
 
 ![Python](https://img.shields.io/badge/python-3.9%2B-blue)
 ![uv](https://img.shields.io/badge/powered%20by-uv-green)
